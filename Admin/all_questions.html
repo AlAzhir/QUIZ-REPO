@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Saved Questions</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .question-card { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+    button { margin: 5px; }
+  </style>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <h2>All Saved Questions</h2>
+  <div id="list"></div>
+  <br>
+  <button onclick="location.href='admin.html'">⬅️ Back to Admin</button>
+
+  <script>
+    const list = document.getElementById("list");
+    //Retrieve questions from localStorage
+    //If no questions are found, display a message
+    const data = JSON.parse(localStorage.getItem("quizQuestions")) || [];
+
+    if (data.length === 0) {
+      list.innerHTML = "<p>No questions available.</p>";
+    }
+
+    //Display each question in a card format
+    data.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.className = "question-card";
+      div.innerHTML = `
+        <strong>Q${i + 1}:</strong> ${q.question}<br>
+        <em>Type:</em> ${q.type}<br>
+        <em>Options:</em> A) ${q.options.a}, B) ${q.options.b}, C) ${q.options.c}, D) ${q.options.d}<br>
+        <em>Answer(s):</em> ${q.answer.join(', ')}<br>
+        <button onclick="edit(${i})">✏️ Edit</button>
+        <button onclick="deleteQ(${i})">🗑️ Delete</button>
+      `;
+      list.appendChild(div);
+    });
+
+    //Edit question function
+    function edit(index) {
+      localStorage.setItem("editIndex", index);
+      location.href = "admin.html";
+    }
+
+    //Delete question function
+    function deleteQ(index) {
+      if (confirm("Delete this question?")) {
+        data.splice(index, 1);
+        localStorage.setItem("quizQuestions", JSON.stringify(data));
+        location.reload();
+      }
+    }
+  </script>
+  <!-- Include CryptoJS for hashing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="utils.js"></script>
+  <script src="../session expired.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/* user.css */
+/* Base body styles */
+body {
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 50px;
+  overflow-x: hidden;
+}
+
+.video-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#bg2Video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  top: 11%;
+  background: #fff;
+  padding: 30px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10; /* Ensure container is above video */
+}
+
+h2 {
+  text-align: center;
+  color: #0ec5d9;
+  margin-bottom: 24px;
+}
+
+h3 {
+  color: #333;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#quizProgress {
+  margin-bottom: 16px;
+  font-weight: 500;
+  color: #007bff;
+}
+
+#result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+  gap: 12px;
+}
+
+form#userQuizForm {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  font-size: 16px;
+  color: #222;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: #0ec5d9;
+  margin-right: 8px;
+}
+
+button {
+  background: #007bff;
+  border: none;
+  color: #fff;
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#logoutBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+  background: #dc3545;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#logoutBtn:hover {
+  background: #b52a37;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: 95vw;
+    padding: 18px 5vw;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+  }
+  button {
+    width: 100%;
+  }
+}
+
+.review-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: center;
+}
+.review-nav button {
+  min-width: 90px;
+}
+
+.review-block {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 18px;
+}
+.correct {
+  color: #28a745;
+  font-weight: bold;
+}
+.wrong {
+  color: #dc3545;
+  font-weight: bold;
+  text-decoration: line-through;
+}
+.missed {
+  color: #ffc107;
+  font-style: italic;
+}
+
+#visual-timer-container {
+  position: absolute;
+  top: 10%;
+  right: 19%;
+  z-index: 20; /* Higher than video and container */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#visual-timer {
+  width: 170px;
+  height: 170px;
+  background: #111;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 80px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  user-select: none;
+}
+
+@media (max-width: 700px) {
+  #visual-timer-container {
+    right: 4px;
+    top: 8px;
+  }
+  #visual-timer {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+  }
+}

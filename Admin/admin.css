@@ -1,0 +1,138 @@
+/* admin.css */
+/* Base body styles */
+body {
+  position: relative; /* Needed for absolute bg-video */
+  font-family: 'Segoe UI', sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 50px;
+  overflow-x: hidden;
+}
+
+.video-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#bg1Video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Header styles */
+h2 {
+  text-align: center;
+  color: #000000;
+}
+
+/* Admin-specific styles */
+.admin-container {
+  position: fixed;
+  top: 8%; left: 1%;
+  width: 40vw;
+  height: 90vh;
+  z-index: 2;
+  background: rgba(255,255,255,0.92);
+  padding: 1rem;              /* less gap around edges */
+  box-sizing: border-box;     /* include padding in width/height */
+  overflow: auto;             /* scroll if content overflows */
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  gap: 0.5rem;                /* less gap between child elements */
+}
+
+/* Admin header styles */
+.home-buttons,
+#adminControls,
+#result {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+#addQuestion{
+  position: fixed;
+  top: 0px;
+  left: 45%;
+  color: black;
+  align-items: top;
+}
+
+/* Button styles */
+button {
+  background: #007bff;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+  background: #0056b3;
+}
+
+/* Input styles */
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Select styles */
+label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+/* Select dropdown styles */
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+/* Question block styles */
+.question-block {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+#logoutBtn {
+  position: fixed;
+  top: 10%;
+  right: 31%;
+  z-index: 2;
+  background: #dc3545;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#logoutBtn:hover {
+  background: #b52a37;
+}
+.container {
+  position: relative; /* Ensure absolute positioning works inside */
+}
